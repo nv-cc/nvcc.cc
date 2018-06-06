@@ -3,7 +3,15 @@
 
 <head>
     <meta charset="utf-8"></meta>
+	<!--<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />-->
     <title>任先阳</title>
+    <script>
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            setTimeout(a => {
+                document.write('<img alt="renxianyang" src="./renxianyang.png" width="100%">');
+            });//等主线程运行完毕即可~
+        }
+    </script>
     <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">
     <style>
         * {
@@ -53,11 +61,8 @@
         <!--html encocode-->
     </pre>
     <!--脚本-->
-    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
     <script>
-        hljs.initHighlightingOnLoad();
-    </script>
-    <script>
+        //动态title
         class TransTitle {
             constructor(config) {
                 /**
@@ -85,7 +90,9 @@
         });
         test.anim();
     </script>
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
     <script>
+        //html encode
         const transHtml = function () {
             const temp = document.createElement('div');
             return function (html = '<p>need html template</p>') {
@@ -98,6 +105,8 @@
             const encode = `<code>${transHtml(html)}</code>`
             document.querySelector('.code-container').innerHTML = encode;
         }();
+        //highlight
+        hljs.initHighlightingOnLoad();
     </script>
 </body>
 
